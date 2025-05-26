@@ -1,5 +1,5 @@
 # OPEN-GEM
-*This repo displays the status of development for the OPEN-GEM within the TRANSIENCE project (Task 4.1).*
+*This repository displays the status of development for the OPEN-GEM within the TRANSIENCE project (Task 4.1).*
 
 ## Acknowledgements
 The module development is funded from the European Union’s Horizon programme under Grant Agreement No. 101137606 (TRANSIENCE). 
