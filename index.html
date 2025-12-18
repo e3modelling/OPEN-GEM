@@ -1,0 +1,2031 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>D4.1Socioeconomicmodule_v1.00_SUBMITTED</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p>The page serves as a methodological and technical guide of OPEN-GEM,
+a newly developed, open-source Computable General Equilibrium (CGE)
+model, designed to assess the socioeconomic implications of climate and
+circular economy policies across Europe. Built within the TRANSIENCE
+project, it supports the evaluation of ambitious industrial
+decarbonisation strategies in the EU by capturing the complex
+interlinkages between economic activities, environmental policies, and
+global trade.</p>
+<p>OPEN-GEM is a multi-sectoral, multi-regional, recursive-dynamic CGE
+model, representing 44 economic sectors across 28 regions, including all
+EU member states individually. It is calibrated using the Global Trade
+Analysis Project GTAP Data Base (v11) for the base year 2017, with
+updates from the GTAP Circular Economy Data Base. The model simulates
+projections from 2020 to 2050, providing detailed outputs on GDP,
+household consumption, investments, trade flows, emissions, and sectoral
+production.</p>
+<p>The model uniquely features a detailed representation of
+energy-intensive sectors (e.g., cement, steel, aluminium), including
+primary, secondary, and recycling processes. This allows integration
+with industry-based models and supports more precise simulation of
+decarbonisation pathways. It incorporates environmental and climate
+constraints such as carbon pricing, CO₂ emissions caps, and emission
+permit trading mechanisms.</p>
+<p>OPEN-GEM plays a critical role within the MIC3 open modelling
+ecosystem, enabling a holistic and integrated analysis of circularity,
+sustainability, and decarbonisation of European industry. It is designed
+for transparency, reproducibility, and policy relevance, providing
+decision-makers with robust evidence on the socioeconomic impacts of the
+green transition.</p>
+<p>The code of the OPEN-GEM can be found in the following repository: <a
+href="https://github.com/e3modelling/OPEN-GEM">https://github.com/e3modelling/OPEN-GEM</a>.</p>
+<h1 class="TOC-Heading unnumbered"
+id="contents"><strong>Contents</strong></h1>
+<p><a href="#introduction">1 Introduction <span>1</span></a></p>
+<p><a href="#module-description">2 Module description
+<span>2</span></a></p>
+<p><a href="#concept">2.1 Concept <span>3</span></a></p>
+<p><a href="#mathematical-foundations">2.1.1 Mathematical foundations
+<span>4</span></a></p>
+<p><a href="#data-inputs-and-outputs">2.2 Data (inputs and outputs)
+<span>15</span></a></p>
+<p><a href="#inputs">2.2.1 Inputs <span>15</span></a></p>
+<p><a href="#outputs">2.2.2 Outputs <span>15</span></a></p>
+<p><a href="#novelty-or-benefits-of-the-module">3 Novelty or benefits of
+the module <span>16</span></a></p>
+<p><a href="#integration-in-mic3-module-linkages">4 Integration in MIC3/
+Module linkages <span>17</span></a></p>
+<p><a href="#placement-within-mic3">4.1 Placement within MIC3
+<span>17</span></a></p>
+<p><a href="#further-developments">4.2 Further developments
+<span>17</span></a></p>
+<p><a href="#annex">ANNEX <span>18</span></a></p>
+<p><strong>Table of Figures</strong></p>
+<p><a href="#_Ref181905337">Figure 1: Nesting scheme in the OPEN_GEM
+sectors <span>6</span></a></p>
+<p><a href="#_Toc199442135">Figure 2: Trade decision tree
+<span>10</span></a></p>
+<p><a href="#_Ref198122271">Figure 3: Planned interfaces in the MIC3
+baseline workflow from D3.4 <span>17</span></a></p>
+<p><strong>Table of Tables</strong></p>
+<p><a href="#_Ref198121996">Table 1: Country-Regional aggregation of the
+OPEN_GEM model <span>2</span></a></p>
+<p><a href="#_Ref197938065">Table 2: Sectoral aggregation of the
+OPEN_GEM model <span>3</span></a></p>
+<h1 id="introduction">Introduction</h1>
+<p>Decarbonisation and the transition to a circular economy present
+several interconnected challenges. One of the key issues is the need for
+change across industries and households, which often involves high
+upfront costs, technological innovation, and rethinking entire supply
+chains. The transition from a production process that relies heavily on
+fossil fuels to a greener and less resource-intensive process requires a
+modelling approach that can capture the inter-dependencies of the
+economic system at sufficient scale and granularity. Computable General
+Equilibrium (CGE) models offer significant strengths in evaluating the
+complex and interrelated issues associated with decarbonisation and
+circularity performance. Their primary advantage lies in their ability
+to capture economy-wide interactions across sectors, regions, and
+agents, making them well-suited to assess the broad impacts of
+environmental and economic policies. CGE models account for market
+feedbacks, price adjustments, and resource reallocation, allowing
+analysts to evaluate how changes in one part of the economy ripple
+through others. This makes them particularly effective for identifying
+indirect impacts, distributional effects, and policy trade-offs.
+Moreover, CGE models can be tailored to incorporate environmental
+constraints, carbon pricing mechanisms, and material flow dynamics,
+enabling a holistic understanding of how different policy scenarios
+affect both economic performance and sustainability goals. To this end,
+an extension of sectoral coverage in macroeconomic models is needed to
+cover the key characteristics in the demand and supply of the
+sectors/products that play a key role in the transition to a low-carbon,
+circular economy.</p>
+<p>In this study we present the multi-sector, multi-regional CGE model
+OPEN_GEM, which is developed within TRANSIENSE. The model is designed to
+support the socioeconomic assessment of energy and climate policies with
+a particular focus on the impacts related to GDP and sectoral
+production. OPEN_GEM, an open-source model, will benefit from using key
+outputs of the industry-based models in key industrial sectors (i.e.,
+cement, iron &amp; steel, aluminium, etc.) as exogenous inputs—more
+specifically, the different technologies by sector, the cost structure
+by different technology, and the adoption of each technology by sector.
+By soft-linking it with industry-based models, OPEN-GEM will extend its’
+application to cover policies related to the circular economy. A number
+of different modules will be developed with TRANSIENCE to cover a wide
+range of technical and structural characteristics of industries related
+to the decarbonisation and circular economy, altogether comprising the
+MIC3 model ecosystem to be developed within TRANSIENCE (see Deliverable
+D3.4 – Framework for industrial transition modelling), providing the
+framework of the complex communications among them.</p>
+<p>This document serves as a methodological and technical guide of
+OPEN_GEM. Section 2 presents the theoretical foundations on which the
+model is built and provides the mathematical formulations of all the
+equations included in the model. Section 3 presents the benefits of this
+module and Section 4 the integration of this module in the planned
+interfaces in the MIC3 baseline workflow.</p>
+<h1 id="module-description">Module description </h1>
+<p>The OPEN_GEM model is an open-source CGE model that is designed
+within the TRANSIENCE project. Its aim is to assess the economic
+implications of energy, climate and circular economy policies on the EU
+industrial tissue and capture the interactions between the EU member
+states and the rest of the world.</p>
+<p>This version of the model covers the whole world aggregated in 28
+countries/regions (see Table 1) where each EU member state is
+represented individually. The ‘rest of the world’ group of countries is
+represented as the 28<sup>th</sup> region of the model.</p>
+<p>The model is a multi-sectoral recursive dynamic CGE model driven by
+accumulation of capital and equipment, which provides details on the
+macro-economy and its interactions with the environment and the energy
+system. It covers individually 44 activities including a detailed
+representation of the industry and energy sectors together with
+agriculture, transport, and services (see Table 2).</p>
+<p>It can be used for the comparative analysis of alternative policy
+scenarios and the provision of insights on the distributional effects of
+long-term structural adjustments. In all simulation scenarios, the model
+ensures that the economic system is always in general equilibrium.
+Finally, it is a recursive dynamic model<a href="#fn1"
+class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.
+Its properties are manifested through stock-flow relationships,
+technical progress, capital accumulation, agents’ (myopic) expectations,
+and a 5-year time step.</p>
+<p><span id="_Ref198121996" class="anchor"></span>Table 1:
+Country-Regional aggregation of the OPEN_GEM model</p>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 31%" />
+<col style="width: 19%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Country Code</th>
+<th>Country/ Region</th>
+<th>Country Code</th>
+<th>Country/ Region</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>AUT</td>
+<td>Austria</td>
+<td><strong>IRL</strong></td>
+<td>Ireland</td>
+</tr>
+<tr class="even">
+<td>BEL</td>
+<td>Belgium</td>
+<td><strong>ITA</strong></td>
+<td>Italy</td>
+</tr>
+<tr class="odd">
+<td>BGR</td>
+<td>Bulgaria</td>
+<td><strong>LTU</strong></td>
+<td>Lithuania</td>
+</tr>
+<tr class="even">
+<td>CYP</td>
+<td>Cyprus</td>
+<td><strong>LUX</strong></td>
+<td>Luxembourg</td>
+</tr>
+<tr class="odd">
+<td>CZE</td>
+<td>Czechia</td>
+<td><strong>LVA</strong></td>
+<td>Latvia</td>
+</tr>
+<tr class="even">
+<td>DEU</td>
+<td>Germany</td>
+<td><strong>MLT</strong></td>
+<td>Malta</td>
+</tr>
+<tr class="odd">
+<td>DNK</td>
+<td>Denmark</td>
+<td><strong>NLD</strong></td>
+<td>Netherlands</td>
+</tr>
+<tr class="even">
+<td>ESP</td>
+<td>Spain</td>
+<td><strong>POL</strong></td>
+<td>Poland</td>
+</tr>
+<tr class="odd">
+<td>EST</td>
+<td>Estonia</td>
+<td><strong>PRT</strong></td>
+<td>Portugal</td>
+</tr>
+<tr class="even">
+<td>FIN</td>
+<td>Finland</td>
+<td><strong>ROU</strong></td>
+<td>Romania</td>
+</tr>
+<tr class="odd">
+<td>FRA</td>
+<td>France</td>
+<td><strong>SVK</strong></td>
+<td>Slovakia</td>
+</tr>
+<tr class="even">
+<td>GRC</td>
+<td>Greece</td>
+<td><strong>SVN</strong></td>
+<td>Slovenia</td>
+</tr>
+<tr class="odd">
+<td>HRV</td>
+<td>Croatia</td>
+<td><strong>SWE</strong></td>
+<td>Sweden</td>
+</tr>
+<tr class="even">
+<td>HUN</td>
+<td>Hungary</td>
+<td><strong>ROW</strong></td>
+<td>Rest of the World</td>
+</tr>
+</tbody>
+</table>
+<p><span id="_Ref197938065" class="anchor"></span>Table 2: Sectoral
+aggregation of the OPEN_GEM model</p>
+<table>
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 39%" />
+<col style="width: 9%" />
+<col style="width: 41%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Code</th>
+<th>Description</th>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td><strong>Industry</strong></td>
+<td><strong>IND25</strong></td>
+<td>Copper-secondary</td>
+</tr>
+<tr class="even">
+<td>IND01</td>
+<td>Non-metallic minerals mining</td>
+<td><strong>IND26</strong></td>
+<td>Recycling-copper</td>
+</tr>
+<tr class="odd">
+<td>IND02</td>
+<td>Mining of iron ores</td>
+<td><strong>IND27</strong></td>
+<td>Other metals-primary</td>
+</tr>
+<tr class="even">
+<td>IND03</td>
+<td>Mining of bauxite ores</td>
+<td><strong>IND28</strong></td>
+<td>Other metals-secondary</td>
+</tr>
+<tr class="odd">
+<td>IND04</td>
+<td>Mining of copper ores</td>
+<td><strong>IND29</strong></td>
+<td>Recycling-other metals</td>
+</tr>
+<tr class="even">
+<td>IND05</td>
+<td>Mining of other ores</td>
+<td><strong>IND30</strong></td>
+<td>Non-ferrous metals casting</td>
+</tr>
+<tr class="odd">
+<td>IND06</td>
+<td>Potassium fertiliser</td>
+<td><strong>IND31</strong></td>
+<td>Metal products</td>
+</tr>
+<tr class="even">
+<td>IND07</td>
+<td>Nitrogen fertiliser</td>
+<td><strong>IND32</strong></td>
+<td>Paper products, publishing</td>
+</tr>
+<tr class="odd">
+<td>IND08</td>
+<td>Phosphorus fertiliser</td>
+<td><strong>IND33</strong></td>
+<td>Equipment Goods</td>
+</tr>
+<tr class="even">
+<td>IND09</td>
+<td>Other chemicals</td>
+<td><strong>IND34</strong></td>
+<td>Consumer Goods Industries</td>
+</tr>
+<tr class="odd">
+<td>IND10</td>
+<td>Basic pharmaceutical products</td>
+<td><strong>IND35</strong></td>
+<td>Construction</td>
+</tr>
+<tr class="even">
+<td>IND11</td>
+<td>Rubber products</td>
+<td></td>
+<td><strong>Energy</strong></td>
+</tr>
+<tr class="odd">
+<td>IND12</td>
+<td>Plastic products-primary</td>
+<td><strong>ENE01</strong></td>
+<td>Coal</td>
+</tr>
+<tr class="even">
+<td>IND13</td>
+<td>Plastic products-secondary</td>
+<td><strong>ENE02</strong></td>
+<td>Crude Oil</td>
+</tr>
+<tr class="odd">
+<td>IND14</td>
+<td>Recycling-plastics</td>
+<td><strong>ENE03</strong></td>
+<td>Oil</td>
+</tr>
+<tr class="even">
+<td>IND15</td>
+<td>Cement</td>
+<td><strong>ENE04</strong></td>
+<td>Gas</td>
+</tr>
+<tr class="odd">
+<td>IND16</td>
+<td>Other mineral products</td>
+<td><strong>ENE05</strong></td>
+<td>Power Supply</td>
+</tr>
+<tr class="even">
+<td>IND17</td>
+<td>Iron and steel-primary</td>
+<td></td>
+<td><strong>Transport</strong></td>
+</tr>
+<tr class="odd">
+<td>IND18</td>
+<td>Iron and steel-secondary</td>
+<td><strong>TRA01</strong></td>
+<td>Transport</td>
+</tr>
+<tr class="even">
+<td>IND19</td>
+<td>Recycling-iron and steel</td>
+<td></td>
+<td><strong>Agriculture</strong></td>
+</tr>
+<tr class="odd">
+<td>IND20</td>
+<td>Iron and steel casting</td>
+<td><strong>AGR01</strong></td>
+<td>Agriculture</td>
+</tr>
+<tr class="even">
+<td>IND21</td>
+<td>Aluminium-primary</td>
+<td></td>
+<td><strong>Services</strong></td>
+</tr>
+<tr class="odd">
+<td>IND22</td>
+<td>Aluminium-secondary</td>
+<td><strong>SRV01</strong></td>
+<td>Market Services</td>
+</tr>
+<tr class="even">
+<td>IND23</td>
+<td>Recycling-aluminium</td>
+<td><strong>SRV02</strong></td>
+<td>Non-Market Services</td>
+</tr>
+<tr class="odd">
+<td>IND24</td>
+<td>Copper-primary</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="concept">Concept</h2>
+<p>The OPEN_GEM model is written in GAMS. The implementation of the
+model is made in two stages:</p>
+<ol type="1">
+<li><p><strong>Calibration</strong>: Calculation/Estimation/Population
+of the model parameters in such a way that the model, when solved, fully
+replicates the base year data.</p></li>
+<li><p><strong>Dynamic projections and simulations</strong>: This stage
+regards the development of the reference projection and quantification
+of counterfactual scenarios.</p></li>
+</ol>
+<p>Based on the Global Trade Analysis Project (GTAP) input-output tables
+of the base year (2017), the model projects full Input-Output (IO)
+tables for each EU MS for the period 2020–2050 in a 5-year time step.
+The main outputs of the model include main macroeconomic accounts (GDP,
+household consumption, investment, government expenditures, balance of
+trade, etc.), sectoral production, imports and exports by sector, energy
+use, and CO<sub>2</sub> energy related emissions.</p>
+<h3 id="mathematical-foundations">Mathematical foundations</h3>
+<p>OPEN_GEM considers all economic agents (classified in groups: firms,
+households, government and the external sector).</p>
+<p>The model formulation takes into consideration the microeconomic
+theory on agents’ behaviour and the macroeconomic relationships and
+flows among them. The following sections provide the mathematical
+formulation of the model with detailed presentation of economic agents’
+behaviour.</p>
+<h4 id="firms">Firms</h4>
+<p>Firms adopt an optimising behaviour and operate under a perfect
+competition regime. A nested multi-factor Constant Elasticity of
+Substitution (CES) production function is used. Firms’ choice regards
+the optimal level of production inputs (including primary factors of
+production capital, labour and intermediate inputs energy, and other
+commodities). The model identifies a number of <em>i</em> firms,
+<em>j</em> intermediate inputs, labour, and capital.</p>
+<p>Firms operating in perfectly competitive sectors decide upon
+production factor inputs so as to minimise their production costs. Each
+production factor is paid at its marginal product and firms’ unit cost
+prices<a href="#fn2" class="footnote-ref" id="fnref2"
+role="doc-noteref"><sup>2</sup></a> are set to cover the costs of all
+production factors (capital payment inclusive), not allowing for
+non-normal profits. It is assumed that each firm<a href="#fn3"
+class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>
+produces a single good, which is differentiated from any other good
+produced. Firms’ output, factor demands, and associated unit costs are
+presented below. Each firm uses a constant elasticity of substitution
+(CES) production technology. The nesting of the CES production function
+depends on <strong>the substitution possibilities</strong> that
+characterise the production technology of each firm.</p>
+<p>The cost minimisation objective function of the firm is:</p>
+<table>
+<colgroup>
+<col style="width: 89%" />
+<col style="width: 10%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math display">\[{min\ {Cost}_{i,r,t}
+=}{\sum_{f}^{}{{QF}_{f,i,r,t} \cdot {PQF}_{f,i,r,t}}}\]</span></th>
+<th>[1]</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>subject to the production technology of firms:</p>
+<table>
+<colgroup>
+<col style="width: 89%" />
+<col style="width: 10%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math display">\[Q_{i,r,t} = {{\overline{Q}}_{i,r} \cdot
+\frac{{tfp}_{i,r,t}}{{\overline{tfp}}_{i,r}} \bullet \left(
+\sum_{f}^{}{\theta_{f,i,r,t} \cdot \left(
+\frac{{QF}_{f,i,r,t}}{{\overline{QF}}_{f,i,r}} \right)^{\rho}} \right)\
+}^{\frac{1}{\rho}}\]</span></th>
+<th>[2]</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>The respective derived demands for the inputs in the production
+(capital, labour, materials/intermediate inputs) are given by:</p>
+<table>
+<colgroup>
+<col style="width: 89%" />
+<col style="width: 10%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math display">\[{PQ}_{i,r,t} = {{\overline{PQ}}_{i,r}
+\cdot \frac{{\overline{tfp}}_{i,r}}{{tfp}_{i,r,t}} \bullet \left(
+\sum_{f}^{}{\theta_{f,i,r,t} \cdot \left(
+\frac{{PQF}_{f,i,r,t}}{{\overline{PQF}}_{f,i,r}} \right)^{1 - \sigma}}
+\right)\ }^{\frac{1}{1 - \sigma}}\]</span></th>
+<th>[3]</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math display">\[{QF}_{i,f,r,t} =
+{\overline{QF}}_{i,f,r} \bullet \frac{Q_{i,r,t}}{{\overline{Q}}_{i,r}}
+\bullet \left( \frac{{\overline{PQF}}_{f,i,r}}{{\overline{PQ}}_{i,r}}
+\bullet \frac{{PQ}_{i,r,t}}{{PQF}_{f,i,r,t}} \right)^{\sigma} \cdot
+\left( \frac{{tfp}_{i,r,t}}{{\overline{tfp}}_{i,r}} \right)^{\sigma -
+1}\]</span></td>
+<td>[4]</td>
+</tr>
+</tbody>
+</table>
+<p>where:</p>
+<p><span class="math inline">\(i:\)</span> sector, <span
+class="math inline">\(r\)</span>: region, <span
+class="math inline">\(t\)</span>: time, <em>f</em>: inputs in the
+production function (capital, labour, and intermediate inputs). Note
+that the (<span class="math inline">\(\overline{x})\)</span> symbol
+means that the variable <span class="math inline">\((x)\)</span> is in
+its base year value.</p>
+<table>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 84%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(Q_{i,r,t}\)</span>:</th>
+<th>production in volume for activity <span
+class="math inline">\(i\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\({\overline{Q}}_{i,r}\)</span>:</td>
+<td>production in volume for activity <span
+class="math inline">\(i\)</span> (base year)</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(QF_{f,i,r,t}\)</span>:</td>
+<td>amount of production factor <span class="math inline">\(f\)</span>
+used in production in year <em>t</em></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\({\overline{QF}}_{f,i,r}\)</span>:</td>
+<td>amount of production factor <span class="math inline">\(f\)</span>
+used in production (base year).</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\({PQF}_{f,i,r,t}\)</span>:</td>
+<td>unit cost of factor <span class="math inline">\(f\)</span>.</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\({\overline{PQF}}_{f,i,r}\)</span>:</td>
+<td>unit cost of factor <span class="math inline">\(f\)</span> (base
+year).</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\({PQ}_{i,r,t}\)</span>:</td>
+<td>unit cost of production for activity <span
+class="math inline">\(i\)</span>.</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\({\overline{PQ}}_{i,r}\)</span>:</td>
+<td>unit cost of production for activity <span
+class="math inline">\(i\)</span> (base year).</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\theta_{f,i,r,t}\)</span>:</td>
+<td>share parameter (to calibrate to base year values)</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\rho\)</span>:</td>
+<td>elasticity <span class="math inline">\(\left( \rho = \frac{\sigma -
+1}{\sigma} \right)\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math display">\[\sigma:\]</span></td>
+<td>elasticity of substitution between production factors</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\({tfp}_{i,r,t}\)</span><em>:</em></td>
+<td>total factor productivity</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\({\overline{tfp}}_{i,r}\)</span>:</td>
+<td>total factor productivity at base year <span class="math inline">\((
+= 1)\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>The CES production technology applies to all firms. Production
+functions in OPEN_GEM exhibit a nested separability scheme, involving
+capital (K), labour (<span class="math inline">\(L\)</span>), energy
+(E), and materials and transport (M). The nesting scheme differentiates
+among the sectors so as to take into account the specific features of
+each activity and to capture the different substitution possibilities
+that characterise each production sector<strong>.</strong></p>
+<p>For the remainder of the text, we use the following symbols for
+variables’ subscripts:</p>
+<ul>
+<li><p><em>pr, br,</em> (interchangeably) for activity sector</p></li>
+<li><p><em>er, cr, cs (</em>interchangeably) for countries</p></li>
+<li><p><em>t</em> for time <em>gv</em> for government revenues and
+expenses categories</p></li>
+<li><p><em>co2</em> for CO<sub>2</sub> energy related emissions</p></li>
+<li><p><em>fa</em> for production factor</p></li>
+<li><p><em>se, sr (</em>interchangeably) for institutional sector, i.e.,
+households (<em>h</em>), firms (<em>f</em>), government (<em>g</em>),
+and world (<em>w</em>)</p></li>
+</ul>
+<p><span id="_Ref181905337" class="anchor"></span>Figure 1: Nesting
+scheme in the OPEN_GEM sectors</p>
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><img src="media/media/image2.png"
+style="width:6.32617in;height:4.88962in" /></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p>The nesting scheme develops as follows:</p>
+<table>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 89%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>1<sup>st</sup> level:</strong></th>
+<th>Production of Goods (XD) is split into capital, labour, energy
+bundle (<em>KLE</em>) and materials bundle (<em>MA</em>)</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p><span class="math display">\[Α\_ XD = {a\_ xd}_{0} \bullet \left(
+d^{kle} \bullet \left( \frac{A\_ KLE}{{a\_ kle}_{0}} \right)^{\rho} +
+d^{trama} \bullet \left( \frac{A\_ MA}{{a\_ ma}_{0}} \right)^{\rho}
+\right)^{\frac{1}{\rho}}\]</span></p>
+<p>where: <span class="math inline">\(d\)</span>: share parameter and
+<span class="math inline">\(\rho\)</span>: substitution elasticity
+parameter</p>
+<table>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 89%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th rowspan="2"><strong>2<sup>nd</sup> level</strong>:</th>
+<th>KLE is split into capital and labour bundle (<em>KL</em>) and energy
+bundle (<em>ENG</em>)</th>
+</tr>
+<tr class="odd">
+<th>MA is split into intermediate inputs materials (IO)</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p><span class="math display">\[Α\_ KLE = \mathbf{CES}(A\_ KL,\ A\_
+ENG)\]</span></p>
+<p><span class="math display">\[Α\_ MA = \mathbf{CES}\left( {A\_
+IO}_{prmane} \right)\]</span></p>
+<table>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 89%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>3<sup>rd</sup> level</strong>:</th>
+<th><p>KL is split into capital and labour bundle</p>
+<p>ENG is split into fuels energy bundle (EN) and electricity
+(ELE)</p></th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p><span class="math display">\[Α\_ KL = \mathbf{CES}(A\_ KAV,\ A\_
+LAV)\]</span></p>
+<p><span class="math display">\[Α\_ ENG = \mathbf{CES}(A\_ EN,\ A\_
+ELE)\]</span></p>
+<table>
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 88%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th rowspan="2"><strong>4<sup>th</sup> level</strong>:</th>
+<th>EN is split into fuels energy intermediate inputs (coal, oil and
+gas)</th>
+</tr>
+<tr class="odd">
+<th></th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p><span class="math display">\[Α\_ EN = \mathbf{CES}\left( {A\_
+IO}_{prfuel} \right)\]</span></p></td>
+</tr>
+</tbody>
+</table>
+<h4 id="household">Household</h4>
+<p>In each region/country in OPEN_GEM, a representative household is
+modelled that maximises its utility function subject to its budget
+constraint. Its budget is derived from its income as capital owners from
+labour supply and the transfers from other institutional sectors.</p>
+<p>Its utility function is a Linear Expenditure System (LES<a
+href="#fn4" class="footnote-ref" id="fnref4"
+role="doc-noteref"><sup>4</sup></a>) function that considers subsistence
+minima:</p>
+<table>
+<colgroup>
+<col style="width: 87%" />
+<col style="width: 2%" />
+<col style="width: 10%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math display">\[U = \left( \sum_{i}^{}{{bh}_{i,r,t}
+\cdot ln\left( {CV}_{i,r,t} - {CH}_{i,r,t} \right)}
+\right)\]</span></th>
+<th></th>
+<th>[5]</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>Where <span class="math inline">\({CV}_{i,r,t}\ \)</span>is total
+consumption, <span class="math inline">\({CH}_{i,r,t}\)</span> is the
+subsistence minima consumption. Total and disposable income is derived
+as follows:</p>
+<table>
+<colgroup>
+<col style="width: 89%" />
+<col style="width: 10%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math display">\[YDISP = PL \bullet L +
+W^{oth}\]</span></th>
+<th>[6]</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>where:</p>
+<p><span class="math inline">\(PL \bullet L\)</span>: labour income</p>
+<p><em>W<sup>oth</sup></em>: non-labour income (e.g. institutional
+transfers)</p>
+<p>The consumer’s optimisation problem is defined as:</p>
+<table>
+<colgroup>
+<col style="width: 89%" />
+<col style="width: 10%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math display">\[\max_{CV}\int_{t = 0}^{\infty}{e^{- stp
+\bullet t}U(CV)}\]</span></th>
+<th>[7]</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math display">\[s.t.\ \ \dot{w}(t) = YDISP(t) - PCI(t)
+\bullet CV(t) - PCI(t) \bullet CH(t)\]</span></td>
+<td>[8]</td>
+</tr>
+</tbody>
+</table>
+<p>where <em>stp</em> is the social time preference / subjective rate of
+discount. Solving the above problem, the optimal demand for total
+consumption is derived:</p>
+<table>
+<colgroup>
+<col style="width: 89%" />
+<col style="width: 10%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math display">\[CV = CH + \mu \bullet \frac{bh}{PCI}
+\bullet (YDISP - PCΙ \bullet CH)\]</span></th>
+<th>[9]</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p><em>μ</em> is a proxy to the marginal propensity to consume <span
+class="math inline">\(\mu = \frac{stp}{ir}\)</span>, and <em>ir</em> is
+the interest rate. <em>bh</em> is the LES private consumption share
+parameter. Once the household decides total household consumption it
+needs to decide over the different consumption by product (PR).</p>
+<h4 id="investment">Investment</h4>
+<p>OPEN_GEM is a recursive dynamic model solved sequentially over time.
+It is assumed that investment taking place in time <em>t</em> increases
+the production capacity in the following period at time <em>t+1</em>.
+The law of motion of capital stock is given by:</p>
+<table>
+<colgroup>
+<col style="width: 90%" />
+<col style="width: 9%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math display">\[{A\_ KAVC}_{pr,er,t} = \left( 1 -
+d_{pr,er,t} \right)^{\Delta t} \bullet {A\_ KAVC}_{pr,er,t - 1} +
+{\frac{1 - \left( 1 - d_{pr,er,t} \right)^{\Delta t}\ }{d_{pr,er,t}}A\_
+INVP}_{pr,er,t}\]</span></th>
+<th>[10]</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>OPEN_GEM is a savings-driven model. Firm’s investment is translated
+into demand for investment goods, which are produced from the rest of
+the sectors of the economy through the constant coefficient
+<em>tinvpv<sub>pr, </sub></em>:</p>
+<table>
+<colgroup>
+<col style="width: 87%" />
+<col style="width: 12%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math display">\[{A\_ INVP}_{pr,er,t} =
+{tinvpv}_{pr,er,t} \bullet \frac{{exo\_ investments}_{er,t}}{{P\_
+INVP}_{pr,er,t}}\]</span></th>
+<th>[11]</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>where:</p>
+<p><em>exo_investments<sub>er,t </sub></em>: exogenous investments
+<em>tinvpv<sub>pr,er,t </sub></em>: share of each firm in delivery of
+investment</p>
+<p><em>V_INV<sub>se,er,t</sub></em>: investment value by agent</p>
+<p><em>P_INVP<sub>pr.er,t</sub>:</em> price of investment product</p>
+<h4 id="government">Government</h4>
+<p>Government’s behaviour (spending) is exogenous to the OPEN_GEM model.
+Government’s final demand by product (A_<em>GC<sub>pr,er,t</sub></em>)
+is obtained by applying fixed coefficients
+(<em>tgcv<sub>pr,er,t</sub></em>) to the exogenous volume of government
+consumption (gctv<em><sub>er,t</sub></em>):</p>
+<table>
+<colgroup>
+<col style="width: 89%" />
+<col style="width: 10%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math display">\[{A\_ GC}_{pr,er,t} = {gctv}_{er,t}
+\bullet {tgcv}_{pr,er,t}\ \]</span></th>
+<th>[12]</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>Exogenous calculation of government consumption is assumed in line
+with the exogenous targets of the other components of GDP. A set of
+exogenous assumptions should be included in the Baseline scenario (i.e.,
+technical progress, investments, government consumption, etc.) in line
+with selected exogenous targets (i.e., investment to GDP, GDP growth,
+etc.).</p>
+<p>The following equation describes all tax revenues and subsidy
+expenditure of the government disaggregated by government tax/revenue
+categories:</p>
+<ol type="1">
+<li><p>Government revenue from <strong><u>duties</u></strong> is the sum
+of bilateral duty rates for all the imported products adjusted by the
+price index.</p></li>
+</ol>
+<table>
+<colgroup>
+<col style="width: 70%" />
+<col style="width: 20%" />
+<col style="width: 8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math display">\[{V\_ FGRB}_{gv,pr,er,t} =
+\sum_{cr}^{}{txduto}_{pr,er,cr,t} \bullet A\_{IMPO}_{pr,er,cr,t} \bullet
+\frac{{WPI}_{t}}{{WPI}_{0}}\]</span></th>
+<th><em>GV</em>=DUT</th>
+<th>[13]</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>where:</p>
+<p><em>txduto<sub>pr,er,cr,t</sub></em>: bilateral duty rate</p>
+<p><em>A_IMPO<sub>pr,er,cr,t</sub></em>: imports in volume</p>
+<p><em>WPI<sub>t</sub></em>: the world price index</p>
+<p><em>WPI<sub>0</sub></em>: the world price index in the base year</p>
+<ol start="2" type="1">
+<li><p>Government revenues or expenditures on <strong><u>taxes less
+subsidies of production</u></strong>:</p></li>
+</ol>
+<table>
+<colgroup>
+<col style="width: 70%" />
+<col style="width: 20%" />
+<col style="width: 8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math display">\[{V\_ FGRB}_{gv,pr,er,t} =
+{txproduction}_{pr,er,t} \bullet \frac{{WPI}_{t}}{{WPI}_{0}} \bullet
+{A\_ XD}_{pr,er,t}\ \ \ \]</span></th>
+<th><em>GV</em>=SUB</th>
+<th>[14]</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>where:</p>
+<p><em>txproduction<sub>pr,er,t</sub></em>: the taxes less subsidies
+rate</p>
+<p><em>A_XD<sub>pr,er,t</sub></em>: production in volume</p>
+<ol start="3" type="1">
+<li><p>Government revenue <strong><u>on indirect taxes</u></strong> is
+the sum of the respective tax rates multiplied by production, products,
+households’ energy consumption and on firms’ energy</p></li>
+</ol>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 77%" />
+<col style="width: 14%" />
+<col style="width: 8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math display">\[{V\_ FGRB}_{gv,pr,er,t} =
+{txproducts}_{pr,er,t} \bullet \frac{{WPI}_{t}}{{WPI}_{0}} \bullet
+\left\lbrack \sum_{br}^{}\left( {A\_ IO}_{pr,br,er,t} \right) +
+A\_{GC}_{pr,er,t} + {A\_ HC}_{pr,er,t} + A\_{INVP}_{pr,er,t}
+\right\rbrack\]</span></th>
+<th><em>GV</em>=IT</th>
+<th>[15]</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>where:</p>
+<p><em>txproducts<sub>pr,er,t</sub></em>: the taxes less subsidies on
+products</p>
+<p><em>A_IO<sub>pr,br,er,t</sub></em>: IO deliveries between sectors of
+activities</p>
+<p><em>A_HC<sub>pr,er,t</sub></em>: the deliveries to private
+consumption</p>
+<p><em>A_GC<sub>pr,er,t</sub></em>: deliveries to public consumption by
+branches</p>
+<p><em>A_INVP<sub>pr.er,t</sub></em>: the products used in investment
+deliveries by sector</p>
+<ol start="4" type="1">
+<li><p>Government revenue on <strong><u>environmental taxes</u></strong>
+includes taxes on firms proportional to their emissions less the
+endowments from unauctioned permits plus tax revenues from households’
+environmental tax</p></li>
+</ol>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 77%" />
+<col style="width: 14%" />
+<col style="width: 8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math display">\[{V\_ FGRB}_{gvb,pr,er,t} =
+{TXENV}_{pr,er,t} \bullet {EMMBR}_{pr,er,t} + {TXENVH}_{pr,er,t} \bullet
+\bullet {A\_ EMMH}_{pr,er,t}\]</span></th>
+<th><em>GVB</em>= ENV</th>
+<th>[16]</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>where:</p>
+<p><em>TXENV<sub>pr,er,t</sub></em>: the environmental tax for firms</p>
+<p><em>A_EMMBR<sub>pr,er,t</sub></em>: the energy related emissions by
+branches</p>
+<p><em>TXENVH<sub>pr,er,t</sub></em>: the environmental tax for
+household</p>
+<p><em>A_EMMH<sub>pr,er,t</sub></em>: the energy related emissions for
+household</p>
+<h4 id="external-sector">External Sector</h4>
+<p>Firms and households consume a composite good that is composed of an
+imported part and a domestically produced part. Imported and
+domestically produced goods are considered as imperfect substitutes
+(Armington, 1979). The supply decision of a good in the domestic economy
+is split in two stages:</p>
+<ol type="1">
+<li><p>At the first stage, firms decide on the overall imports that they
+require.</p></li>
+<li><p>At the second stage, firms decide from which countries they will
+import. They split total import demand decided at stage 1 to
+regional/country demand.</p></li>
+</ol>
+<p>The import price of each country (destination) is based on the unit
+cost of production of the supplying country (origin).</p>
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><span id="_Toc199442135" class="anchor"></span>Figure 2: Trade
+decision tree</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>Firms’ cost minimisation problem (for the Imports 1<sup>st</sup>
+level) is:</p>
+<table>
+<colgroup>
+<col style="width: 89%" />
+<col style="width: 10%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math display">\[\min C_{pr,er,t} = {P\_ XD}_{pr,er,t}
+\bullet A\_{XXD}_{pr,er,t} + {P\_ IMP}_{pr,er,t} \bullet {A\_
+IMP}_{pr,er,t}\]</span></th>
+<th>[17]</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>where:</p>
+<p><em>P_XD<sub>pr,er,t</sub></em>: price of domestically produced
+good</p>
+<p><em>A_XXD<sub>pr,er,t</sub></em>: production for domestic use</p>
+<p><em>P_IMP<sub>pr,er,t</sub></em>: import price</p>
+<p><em>A_IMP<sub>pr,er,t</sub></em>: imports</p>
+<p>such that:</p>
+<table>
+<colgroup>
+<col style="width: 89%" />
+<col style="width: 10%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math display">\[{A\_ Y}_{pr,er,t} = {AC}_{pr,er,t}
+\bullet \left\lbrack \delta_{pr,er,t} \bullet {A\_
+XXD}_{pr,er,t}^{\frac{\sigma_{x_{pr,er,t}} - 1}{\sigma_{x_{pr,er,t}}}} +
+\left( 1 - \delta_{pr,er,t} \right) \bullet {A\_
+IMP}_{pr,er,t}^{\frac{\sigma_{x_{pr,er,t}} - 1}{\sigma_{x_{pr,er,t}}}}
+\right\rbrack^{\frac{\sigma_{x_{pr,er,t}}}{\sigma_{x_{pr,er,t}} -
+1}}\]</span></th>
+<th>[18]</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>where:</p>
+<p><em>A_Y<sub>pr,er,t</sub></em>: composite good</p>
+<p><em>AC<sub>pr,er,t</sub></em>: scale parameter in the Armington
+function</p>
+<p><em>δ<sub>pr,er,t</sub></em>: share parameter estimated from the base
+year data related to the value shares of
+<em>A_XXD<sub>pr,er,t</sub></em> and <em>A_IMP<sub>pr,er,t</sub></em> in
+the demand for composite good <em>Y<sub>pr,er,t</sub></em></p>
+<p><em>σ<sub>χ</sub></em>: the Armington elasticity between imported and
+domestically produced goods</p>
+<p>The optimal demand for domestic and imported goods is obtained by
+employing the Shephard’s lemma<a href="#fn5" class="footnote-ref"
+id="fnref5" role="doc-noteref"><sup>5</sup></a>.</p>
+<table>
+<colgroup>
+<col style="width: 89%" />
+<col style="width: 10%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math display">\[{A\_ XXD}_{pr,er,t} = {A\_ Y}_{pr,er,t}
+\bullet {AC}_{pr,er,t}^{\sigma_{x_{pr,er,t}} - 1} \bullet \left( 1 -
+\delta_{pr,er,t} \right)^{\sigma_{x_{pr,er,t}}} \bullet \left(
+\frac{{P\_\Upsilon}_{pr,er,t}}{{P\_ XD}_{pr,er,t}}
+\right)^{\sigma_{x_{pr,er,t}}}\]</span></th>
+<th>[19]</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math display">\[{A\_ IMP}_{pr,er,t} = {A\_ Y}_{pr,er,t}
+\bullet {AC}_{pr,er,t}^{\sigma_{x_{pr,er,t}} - 1} \bullet
+\delta_{pr,er,t}^{\sigma_{x,pr,er,t}} \bullet \left(
+\frac{{P\_\Upsilon}_{pr,er,t}}{{P\_ IMP}_{pr,er,t}}
+\right)^{\sigma_{x_{pr,er,t}}}\]</span></td>
+<td>[20]</td>
+</tr>
+</tbody>
+</table>
+<p>where:</p>
+<p><em>A_IMP<sub>pr,er,t</sub></em>: the imports by branch</p>
+<p><em>P_Y<sub>pr,er,t</sub>:</em> the unit cost for the composite
+good</p>
+<table>
+<colgroup>
+<col style="width: 91%" />
+<col style="width: 8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math display">\[{P\_\Upsilon}_{pr,er,t} =
+\frac{1}{{AC}_{pr,er,t}} \bullet \left\lbrack
+\delta_{pr,er,t}^{\sigma_{x,pr,er,t}} \bullet {P\_ IMP}_{pr,er,t}^{1 -
+\sigma_{x_{pr,er,t}}} \bullet + \left( 1 - \delta_{pr,er,t}
+\right)^{\sigma_{x_{pr,eu,t}}} \bullet {P\_ XD}_{pr,er,t}^{1 -
+\sigma_{x_{pr,er,t}}} \right\rbrack^{\frac{1}{1 -
+\sigma_{x_{pr,er,t}}}}\]</span></th>
+<th>[21]</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math display">\[{P\_ IMP}_{pr,er,t} = \left\lbrack
+\sum_{cr}^{}{{betashare}_{pr,er,cr,t}^{{sigmai}_{pr,er,t}} \bullet}{{P\_
+IMPO}_{pr,er,cr,t}}^{(1 - {sigmai}_{pr,er,t})} \right\rbrack^{\left(
+\frac{1}{1 - {sigmai}_{pr,er,t}} \right)}\]</span></td>
+<td>[22]</td>
+</tr>
+</tbody>
+</table>
+<p>where:</p>
+<p><em>P_IMP<sub>pr,er,t</sub></em>: price of total imports</p>
+<p><em>betashare<sub>pr,er,cr,t</sub></em>: share parameter</p>
+<p><em>σ<sub>pr,er,t</sub></em> : the elasticity of substitution</p>
+<p><em>P_IMPO<sub>pr,er,cr,t</sub></em>: import price of good
+<em>pr</em> for country <em>er</em> originating from country
+<em>cr</em></p>
+<table>
+<colgroup>
+<col style="width: 91%" />
+<col style="width: 8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math display">\[{P\_ IMPO}_{pr,cs,cr,t} =
+P\_{PWE}_{pr,cr,t} + {txduto}_{pr,cs,cr,t} \bullet
+\frac{{WPI}_{t}}{{WPI}_{0}} + \sum_{itrn}^{}\left( {cif\_
+vtwr}_{itrn,pr,cs,t} \bullet {P\_ TR}_{itrn,t} \right)\]</span></th>
+<th>[23]</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>where:</p>
+<p><em>P_PWE<sub>pr,cr,t</sub></em>: the export price in international
+currency</p>
+<p><em>cif_vtwr<sub>,itrn,pr,cs,t</sub></em>: the demand share for
+transport margins</p>
+<p><em>P_TR<sub>itrn,t</sub></em>: the international transport margin
+price</p>
+<h4 id="international-transport-services">International transport
+services</h4>
+<p>The GTAP Data Base identifies two sets of data as regards to
+trade:</p>
+<ol type="1">
+<li><p><strong>bilateral trade flows of goods and services</strong> (the
+representation of which in the OPEN_GEM model is described in the
+previous section)</p></li>
+<li><p><strong>supply of international trade margins</strong> (i.e.,
+freight transport services)</p></li>
+</ol>
+<p>The GTAP parameters related to trade are:</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 66%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Name</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>VST (mg<sup>*</sup>,er)</td>
+<td>Margin exports</td>
+</tr>
+<tr class="even">
+<td>VTWR (mg,pr,er,cr)</td>
+<td>Margin usage in facilitation of flow of commodity pr from country er
+(origin) to country cr (destination)</td>
+</tr>
+</tbody>
+</table>
+<p><sup>* mg: air, land, water, Source: McDougal (2006)</sup></p>
+<p>The sector that supplies the international transport services (i.e.,
+water, air, and land transport) earns the difference between Cost,
+Insurance, and Freight (<em>C.I.F.)</em> and Free on Board
+(<em>F.o.B.)</em> (<span
+class="math inline">\(\sum_{r}^{}{VST}_{j,r}\)</span>, the supply of
+margins). The market clearance conditions for the international market
+services imply that <strong>the sum across all regions of service
+exports</strong> equals <strong>the sum of all bilateral trade flows of
+service inputs</strong> (usage).</p>
+<table>
+<colgroup>
+<col style="width: 89%" />
+<col style="width: 10%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math display">\[\sum_{r}^{}{vst}_{j,r} =
+\sum_{i,r,s}^{}{vtwr}_{j,i,r,s}\]</span></th>
+<th>[24]</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>In the OPEN_GEM model, <strong>the international transport margin
+price</strong> is determined by the following equation:</p>
+<table>
+<colgroup>
+<col style="width: 89%" />
+<col style="width: 10%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math display">\[{P\_ TR}_{t} \leq \sum_{er}^{}\left(
+{thetavst}_{er,t} \bullet \frac{{P\_ PWE}_{pr,er,t}}{\overline{{P\_
+PWE}_{pr,er,0}}} \right)\]</span></th>
+<th>[25]</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>where:</p>
+<p><em>thetavst<sub>er,t</sub></em>: measures <strong>the share of each
+country in total international transport margins</strong> in the base
+year. The activity level of each type of transport is defined as:</p>
+<table>
+<colgroup>
+<col style="width: 89%" />
+<col style="width: 10%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math display">\[{A\_ YVST}_{t} \bullet {vtag}_{t} \geq
+\sum_{br,er,cr}^{}\left( {A\_ EXPO}_{pr,er,cr,t} \bullet {cif\_
+vtwr}_{pr,er,cs,t} \right)\]</span></th>
+<th>[26]</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>where:</p>
+<p><em>vtag<sub>t</sub></em> : the output of transport in the
+international pool in the base year</p>
+<p>Exports of transport services are given by:</p>
+<table>
+<colgroup>
+<col style="width: 89%" />
+<col style="width: 10%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math display">\[{A\_ YVTWR}_{er,t} = \ {A\_
+YVST}_{t}{\bullet {vtag}_{t} \bullet thetavst}_{er,t}\]</span></th>
+<th>[27]</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>The bilateral import price equals the export price of the exporter in
+case of <strong>tradable services</strong>, while in the case of
+<strong>merchandise sectors</strong> the bilateral import price is given
+by the export price plus the <strong>bilateral <em>cif/fob</em>
+margins.</strong></p>
+<p><em>A_IMPO<sub>br,cr,cs,t</sub>:</em> denotes imports of good
+<em>pr</em> demanded by country <em>cr</em> from country
+<em>cs</em>.</p>
+<table>
+<colgroup>
+<col style="width: 89%" />
+<col style="width: 10%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math display">\[{A\_ IMPO}_{br,cr,cs,t} =
+A\_{IMP}_{nr,cr,t} \bullet \left( {betashare}_{br,cr,cs,t} \bullet
+\frac{{P\_ IMP}_{br,cr,t}}{{P\_ IMPO}_{br,cr,cs,t}}
+\right)^{{sigmai}_{br,cr,t}}\]</span></th>
+<th>[28]</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>and</p>
+<table>
+<colgroup>
+<col style="width: 89%" />
+<col style="width: 10%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math display">\[{A\_ EXPO}_{br,\mathbf{cr},cs,t} = {A\_
+IMPO}_{br,cs,\mathbf{cr},t}\]</span></th>
+<th>[29]</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h4 id="prices">Prices</h4>
+<p>Intermediate and final consumers buy the composite good <em>A_Y</em>
+at the price <em>P_Y</em> plus taxes. Below, we report the different
+price formulations included in the OPEN_GEM model:</p>
+<table>
+<colgroup>
+<col style="width: 93%" />
+<col style="width: 6%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math display">\[{P\_ IO}_{pr,er,t} =
+{txproducts}_{pr,er,t} \bullet \frac{{WPI}_{t}}{{WPI}_{0}} + {P\_
+Y}_{pr,er,t}\]</span></th>
+<th>[30]</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math display">\[{P\_ HC}_{pr,er,t} =
+{txproducts}_{pr,er,t} \bullet \frac{{WPI}_{t}}{{WPI}_{0}} + {P\_
+Y}_{pr,er,t}\]</span></td>
+<td>[31]</td>
+</tr>
+<tr class="even">
+<td><span class="math display">\[{P\_ GC}_{pr,er,t} =
+{txproducts}_{pr,er,t} \bullet \frac{{WPI}_{t}}{{WPI}_{0}} + {P\_
+Y}_{pr,er,t}\]</span></td>
+<td>[32]</td>
+</tr>
+<tr class="odd">
+<td><span class="math display">\[{P\_ INVP}_{pr,er,t} =
+{txproducts}_{pr,er,t} \bullet \frac{{WPI}_{t}}{{WPI}_{0}} + {P\_
+Y}_{pr,er,t}\]</span></td>
+<td>[33]</td>
+</tr>
+</tbody>
+</table>
+<p>where:</p>
+<p><em>P_IO<sub>pr,er,</sub></em><sub>t</sub>: price of intermediate
+inputs to production</p>
+<p><em>P_HC<sub>pr,er,</sub></em><sub>t</sub>: price of deliveries to
+private consumption by branch</p>
+<p><em>P_GC<sub>pr,er,</sub></em><sub>t</sub>: price of delivery to
+public consumption by branch</p>
+<p><em>P_INVP<sub>pr,er,</sub></em><sub>t</sub>: price of delivery to
+investments by branch</p>
+<p>The producer price is given by:</p>
+<table>
+<colgroup>
+<col style="width: 93%" />
+<col style="width: 6%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math display">\[{P\_ XD}_{brt,er,t} = {P\_
+PD}_{brt,er,t}\  + {txproduction}_{brt,er,t} \bullet
+\frac{{WPI}_{t}}{{WPI}_{0}}\]</span></th>
+<th>[34]</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math display">\[P\_{PWE}_{pr,er,t} = {P\_
+PD}_{pr,er,t}\  + {txproduction}_{pr,er,t} \bullet
+\frac{{WPI}_{t}}{{WPI}_{0}}\]</span></td>
+<td>[35]</td>
+</tr>
+</tbody>
+</table>
+<p>where:</p>
+<p><em>P_XD<sub>brt,er,t</sub></em>: the (domestic) supply price
+addressed to domestic demand</p>
+<p><em>P_PWE<sub>pr,er,t</sub></em>: the (domestic) supply price
+addressed to exports</p>
+<p><em>txproduction<sub>pr,er,t</sub></em>: the rate of taxes less
+subsidies on production</p>
+<h4 id="equilibrium">Equilibrium</h4>
+<p>The market clearance equation is:</p>
+<table>
+<colgroup>
+<col style="width: 92%" />
+<col style="width: 7%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math display">\[{A\_ XD}_{pr,er,t} = {A\_
+XXD}_{pr,er,t} + \sum_{cr}^{}{A\_ EXPO}_{pr,er,cr,t} +
+A\_{YVTWR}_{pr,er,t}\]</span></th>
+<th>[36]</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>Total supply of goods (domestically produced and imported) expended
+to intermediate consumption, private and public consumption, and
+investments.</p>
+<table>
+<colgroup>
+<col style="width: 92%" />
+<col style="width: 7%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math display">\[{A\_ Y}_{pr,er,t} = \sum_{br}^{}\left(
+A\_{IO}_{pr,br,er,t,} \right) + {A\_ HC}_{pr,er,t} + {A\_ GC}_{pr,er,t}
++ {A\_ INVP}_{pr,er,t}\]</span></th>
+<th>[37]</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>The market clearance equations for capital, which is mobile across
+sectors but not across regions, are:</p>
+<table>
+<colgroup>
+<col style="width: 87%" />
+<col style="width: 12%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math display">\[\sum_{pr}^{}{A\_ KAV}_{pr,er,t} =
+\sum_{pr}^{}{A\_ KAVC}_{pr,er,t - 1}\]</span></th>
+<th>[38]</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>where:</p>
+<p><em>A_KAVC<sub>pr,er,t</sub></em>: the total amount of capital stock
+available, fixed within the time period.</p>
+<p>The market clearance equations for labour, which is mobile across
+sectors but not across regions, are:</p>
+<table>
+<colgroup>
+<col style="width: 87%" />
+<col style="width: 12%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math display">\[\sum_{pr}^{}{A\_ LAV}_{pr,er,t} =
+{TotPopulation}_{er,t}\]</span></th>
+<th>[39]</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>where:</p>
+<p><em>TotPopulation<sub>er,t</sub></em>: the exogenous total population
+by region</p>
+<p><em>A_LAV<sub>pr,er,t</sub></em>: the labour demand by sector and by
+region.</p>
+<h4 id="environment">Environment</h4>
+<p>The OPEN_GEM environment module includes the CO<sub>2</sub> energy
+related emissions. A CO<sub>2</sub> reduction policy can be implemented
+either through the imposition of an exogenous tax or through the
+introduction of an emission reduction constraint.</p>
+<p>From a technical point of view the introduction of an exogenous
+carbon tax requires:</p>
+<ol type="i">
+<li><p>the activation of the appropriate switches -
+<em>swtxexobr(br,er,an)</em> for firms or/and
+swtxexoh(br,<em>er</em>,<em>an</em>) for households</p></li>
+<li><p>the assignment of the desired level of carbon tax to the
+<em>txem(br,er,an)</em> parameter for firms and to
+<em>txemh(pr,er,an)</em> for households.</p></li>
+</ol>
+<p>In the case where an emission reduction target needs to be introduced
+the following are required:</p>
+<ol type="i">
+<li><p>switch activation: <em>swclubbr(br,er,cc,an)</em> for firms
+or/and <em>swclubh(pr,er,cc,an)</em> for households.</p></li>
+<li><p>set of the desired target (i.e. imposing an GHG emission cap) in
+the <em>supperfeu(cc,an)</em> parameter.</p></li>
+</ol>
+<p>The imposition of an exogenous carbon tax or of an emission reduction
+target (where a carbon price that clears the emission permit market is
+calculated endogenously) increases the user cost of CO<sub>2</sub>
+energy related emitting activities. CO<sub>2</sub> energy related
+emissions of each sector (see [40] for firms and [41] for households)
+are calculated based on energy consumption (energy related
+emissions).</p>
+<table>
+<colgroup>
+<col style="width: 89%" />
+<col style="width: 10%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math display">\[{A\_ EMMBR}_{br,er,t} =
+\sum_{prfuel}^{}{{bec}_{prfuel,br,er,t} \bullet {aer}_{prfuel,br,er,t}
+\bullet {eaf}_{prfuel,br,er,t} \bullet {A\_ IO}_{prfuel,br,er,t}}\
+\]</span></th>
+<th>[40]</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>where:</p>
+<p><em>A_EMMBR<sub>pr,er,t</sub></em>: the GHG emissions by branches</p>
+<p>bec<sub>prfuel,br,er,t</sub>: emission factor for energy related
+CO<sub>2</sub> in the branch level</p>
+<p>aer<sub>prfuel,br,er,t</sub>: share of energy consumption with
+emissions in the branch level</p>
+<p>eaf<sub>prfuel,br,er,t</sub>: emission adjustment factor in the
+branch level</p>
+<p>A_IO<sub>prfuel,br,er,t</sub>: intermediate demand of fuels in the
+branch level</p>
+<table>
+<colgroup>
+<col style="width: 89%" />
+<col style="width: 10%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math display">\[A\_{EMMH}_{prfuel,er,t} =
+{bech}_{prfuel,er,t} \bullet {aerh}_{prfuel,er,t} \bullet {A\_
+HC}_{prfuel,er,t}\ \]</span></th>
+<th>[41]</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>where:</p>
+<p><em>A_EMMH<sub>prfuel,er,t</sub></em>: the CO<sub>2</sub> energy
+related emissions of households by product</p>
+<p>bech<sub>prfuel,er,t</sub>: emission factor for energy related GHG in
+households</p>
+<p>aerh<sub>prfuel,er,t</sub>: share of energy consumption with
+emissions in households</p>
+<p>A_HC<sub>prfuel,er,t</sub>: household energy demand</p>
+<p>The respective equation for the total demand of emission permits
+(firms and household) is given below:</p>
+<table>
+<colgroup>
+<col style="width: 91%" />
+<col style="width: 8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math display">\[{DEMPEREU}_{cc,t} =
+\sum_{er,br}^{}{\left( {A\_ EMMBR}_{br,er,t} \bullet
+{swclubbr}_{br,er,cc,t} \right) + \sum_{er,br}^{}\left( {A\_
+EMMH}_{br,er,t} \bullet {swclubh}_{br,er,cc,t} \right)}\]</span></th>
+<th>[42]</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>where:</p>
+<p>swclubbr<sub>br,er,cc,t</sub>: switch for permit market participation
+for sectors</p>
+<p>swclubh<sub>br,er,cc,t</sub>: switch for permit market participation
+for households</p>
+<p>The market clearance of the emission permit market results in
+<em>P_PCLUBAG<sub>cc,t</sub></em> or else in the price of emission
+permits. The equations below describe the market clearance.</p>
+<table>
+<colgroup>
+<col style="width: 57%" />
+<col style="width: 32%" />
+<col style="width: 10%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math display">\[{supperfeu}_{cc,t} \geq
+{DEMPEREU}_{cc,t}\]</span></th>
+<th><p>dual variable</p>
+<p><em>P_PCLUBAG<sub>cc,t</sub></em></p></th>
+<th>[43]</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>where:</p>
+<p>supperfeu<sub>cc,t</sub>: supply of permits (user defined)</p>
+<p>In OPEN_GEM, the exogenous carbon tax (see [45], [47]) or the
+endogenous carbon price (see [44], [46]) have been assigned in the
+<em>TXENV(br,er,an)</em> variable for firms and in the
+<em>TXENVH(br,er,an)</em> for households.</p>
+<table>
+<colgroup>
+<col style="width: 89%" />
+<col style="width: 10%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math display">\[{TXENV}_{br,er,t} = \sum_{cc}^{}{P\_
+PCLUBAG}_{cc,t} \bullet {swclubbr}_{br,er,cc,t}\ \]</span></th>
+<th>[44]</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math display">\[{TXENV}_{br,er,t} = {txem}_{br,er,t}
+\bullet {swtxexobr}_{br,er,t}\]</span></td>
+<td>[45]</td>
+</tr>
+<tr class="even">
+<td><span class="math display">\[{TXENVH}_{br,er,t} = \sum_{cc}^{}{P\_
+PCLUBAG}_{cc,t} \bullet {swclubh}_{br,er,cc,t}\]</span></td>
+<td>[46]</td>
+</tr>
+<tr class="odd">
+<td><span class="math display">\[{TXENVH}_{br,er,t} = {txemh}_{br,er,t}
+\bullet {swtxexoh}_{br,er,t}\]</span></td>
+<td>[47]</td>
+</tr>
+</tbody>
+</table>
+<p>The price signal in firms and households to abate emissions has been
+modelled to cover the energy related (CO<sub>2</sub>) emissions by the
+combustion of fossil fuels. The carbon tax or the carbon price is added
+in the unit cost of energy which are used in firm’s production [48] or
+in household’s consumption [49].</p>
+<table>
+<colgroup>
+<col style="width: 89%" />
+<col style="width: 10%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math display">\[{P\_ ENPR}_{prfuel,br,er,t} = {P\_
+IO}_{prfuel,br,er,t} + {TXENV}_{br,er,t} \bullet {bec}_{prfuel,br,er,t}
+\bullet {aer}_{prfuel,br,er,t} \bullet
+{eaf}_{prfuel,br,er,t}\]</span></th>
+<th>[48]</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math display">\[{P\_ HC}_{br,er,t} =
+{txproducts}_{br,er,t} \bullet \frac{{WPI}_{t}}{{WPI}_{0}} + {P\_
+Y}_{br,er,t} + {TXENVH}_{br,er,t} \bullet {bech}_{br,er,t} \bullet
+{aerh}_{br,er,t}\]</span></td>
+<td>[49]</td>
+</tr>
+</tbody>
+</table>
+<p>where:</p>
+<p>P_ENPR<sub>prfuel,br,er,t</sub>: the unit cost of energy including
+abatement cost in the branch level</p>
+<p>P_IO<sub>prfuel,br,er,t</sub>: the unit cost of energy excluding
+abatement cost in the branch level</p>
+<p>P_HC<sub>br,er,t</sub>: the unit cost of consumption by product
+including abatement cost in households</p>
+<h4 id="macroeconomic-closure">Macroeconomic Closure</h4>
+<p>Each economic agent (firms, households, government, world) has
+savings that are used to finance investments. At the global level, total
+savings should be equal to total investments.</p>
+<p><span
+class="math display">\[\sum_{\mathbf{se}\mathbf{,}\mathbf{r}}^{}{{\mathbf{V}\mathbf{\_}\mathbf{SAVE}}_{\mathbf{se}\mathbf{,}\mathbf{r}\mathbf{,}\mathbf{t}}\mathbf{=}\sum_{\mathbf{se}\mathbf{,}\mathbf{r}}^{}{\mathbf{V}\mathbf{\_}\mathbf{INV}}_{\mathbf{se}\mathbf{,}\mathbf{r}\mathbf{,}\mathbf{t}}}\
+\bot{rltlrworld}_{t}\]</span></p>
+<p>This equation determines a global interest rate, set so as to
+equalise global investment with global surpluses. In particular, the
+dual variable of this equation, the <em>rltlrworld<sub>t</sub></em>, is
+used to increase/decrease the household consumption and thus
+decrease/increase the household savings for the equation to be met.</p>
+<h2 id="data-inputs-and-outputs">Data (inputs and outputs)</h2>
+<h3 id="inputs">Inputs</h3>
+<p>For the calibration of OPEN_GEM, the Global Trade Analysis Project
+(GTAP) Data Base is used. The latest version of the GTAP Data Base v11
+covers the whole world, aggregated into 65 activities and 160 countries,
+in the years 2004, 2007, 2011, 2014, and 2017. OPEN_GEM focuses on key
+energy intensive industrial sectors and uses the latest GTAP Circular
+Economy Data Base v11 that contains detailed representation of primary,
+secondary, and recycling activities for metals (steel, aluminium,
+copper, etc.) plastics, and non-metallic minerals. It provides full
+coverage of economic, bilateral trade, energy, and environmental
+accounts in a consistent multi-sectorial framework. The calibration of
+the model is based on the most recent year, for which a fully detailed
+dataset is available—the year 2017.</p>
+<p>Finally, the elasticities used in the OPEN_GEM model are extracted
+from the GTAP Data Base: the Armington (trade) elasticities and the
+elasticities of substitution in production. The GTAP Data Base is a
+source of trade elasticities at two levels: i) domestic/Imported and ii)
+between different countries. These elasticities are provided for each
+commodity included in the GTAP Data Base. Elasticities differ among
+sectors, but values for each sector are identical for all
+countries/regions. Econometric estimates by sector and by country are
+not common in the literature as there are data limitations and resulting
+estimates might be highly volatile. Elasticities of substitution in
+production are based on GTAP and the CES nesting scheme.</p>
+<h3 id="outputs">Outputs</h3>
+<p>The main outputs of the model are quantities in monetary value
+measured in billion $ base year values 2017:</p>
+<ul>
+<li><p><em><strong>Macroeconomic Aggregates</strong></em>: GDP,
+Household consumption, Investments, Government expenditures, Imports,
+Exports by country / region</p></li>
+<li><p><em><strong>Sectorial results</strong></em>: Production, Exports,
+Imports</p></li>
+</ul>
+<h1 id="novelty-or-benefits-of-the-module">Novelty or benefits of the
+module</h1>
+<p>OPEN_GEM is an open-source model that has a detailed representation
+on circular economy in key energy-intensive sectors. It is based on the
+most recent data from the GTAP Data Base and can be used to simulate and
+analyse policies related to the circular economy. The model features
+resource extraction sectors, primary and secondary supply of materials,
+and associated recycling activities. It can simulate policies that can
+facilitate the use of materials from secondary markets, material
+taxation, production structure rationalisation (material efficiency
+through better designs), and product lifetime extension through
+adjustment of the recycling rate<a href="#fn6" class="footnote-ref"
+id="fnref6" role="doc-noteref"><sup>6</sup></a>.</p>
+<p>The detailed sectoral coverage on the circular economy allows a
+soft-link with industry-based models that have a more detailed
+representation of different technologies and the emissions mitigation
+options that can be applied in climate mitigation scenarios. OPEN_GEM
+can retrieve such information via a soft-link with the industry-based
+models within TRANSIENCE to re-calibrate the production process of the
+sectors, to align with the substitution possibilities that are
+represented in the industry-based modes.</p>
+<p>OPEN_GEM provides projections on sectoral production within a model
+framework that considers the interlinkages among sectors and countries
+via the structure of the input-output tables and the bilateral trade.
+This model can be used to show how climate and energy policies can drive
+material efficiency/recycling and what the associated economic and
+employment impacts are. In particular, through its explicit
+representation of primary and secondary markets, the model adds
+additional flexibility regarding the options that industries have to
+improve their energy and carbon intensities. The model can simulate
+different enabling conditions including material taxes and other taxes
+and examine the economic efficiency of alternative fiscal policies.</p>
+<h1 id="integration-in-mic3-module-linkages">Integration in MIC3/ Module
+linkages</h1>
+<h2 id="placement-within-mic3">Placement within MIC3</h2>
+<p>OPEN_GEM will be integrated with the product and service (P&amp;S)
+database (see D4.2) to receive inputs regarding the production
+structure, the unit cost of production, and the different technologies
+on the key energy-intensive sectors from the industry-based models.
+OPEN_GEM will feed the P&amp;S database with projections regarding GDP,
+population, and sectoral production. Figure 3 shows the planned
+interfaces in the MIC3 baseline workflow as presented in D3.4.</p>
+<p><img src="media/media/image3.png"
+style="width:6.27083in;height:4.25694in"
+alt="Ein Bild, das Text, Diagramm, Screenshot, Rechteck enthält. KI-generierte Inhalte können fehlerhaft sein." /> </p>
+<p><span id="_Ref198122271" class="anchor"></span>Figure 3: Planned
+interfaces in the MIC3 baseline workflow from D3.4 </p>
+<h2 id="further-developments">Further developments</h2>
+<p>In the next phase, the soft links and the integration with the
+industry-based models will be explicitly determined and finalised.
+OPEN_GEM will benefit from using as exogenous inputs key outputs of the
+industry-based models in key industrial sectors (i.e., cement, iron
+&amp; steel, aluminium, etc.). More specifically, these include the
+different technologies by sector, the cost structure by different
+technology, and the adoption of each technology by sector.</p>
+<h1 class="Annex" id="annex">ANNEX</h1>
+<ul>
+<li><p>Link to repository: <a
+href="https://github.com/e3modelling/OPEN-GEM">https://github.com/e3modelling/OPEN-GEM</a>.</p></li>
+<li><p>Link to dataset: <a
+href="https://www.gtap.agecon.purdue.edu/databases/Utilities/v11.aspx">GTAP
+Data Bases: GTAP 11 Data Base</a> (<em><strong>GTAP Circular Economy
+Data Base</strong></em>)</p></li>
+</ul>
+<aside id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>A recursive dynamic model is a type of economic model
+that captures changes over time by solving a sequence of static
+equilibrium problems, one period at a time. In each period, agents (such
+as households, firms, and the government) make decisions based on
+current conditions and expectations about the future, but without fully
+optimising over the entire time horizon (i.e., without perfect
+foresight). The outcomes from one period—such as capital accumulation,
+resource use, or emissions—become the inputs for the next. This approach
+allows the model to track the evolution of the economy over time, making
+it useful for analysing long-term policy impacts, such as those related
+to decarbonisation and structural transitions.<a href="#fnref1"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Firms’ unit costs depend on the unit cost of factor
+inputs and on TFP. The representation of TFP is discussed in detail in
+the next section.<a href="#fnref2" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>A representative firm is used for a branch/economic
+sector. In the IO table, it is assumed that each column represents a
+single product produced by a single (representative) firm.<a
+href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>See Stone (1954)<a href="#fnref4" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>The partial derivative of the cost function with respect
+to the price of an input gives the conditional demand for that input,
+holding output constant.<a href="#fnref5" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>The current version does not feature stock of durable
+goods. This extension can take place according to data availability.<a
+href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</aside>
+</body>
+</html>
