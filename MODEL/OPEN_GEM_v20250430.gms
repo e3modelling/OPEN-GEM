@@ -1113,7 +1113,7 @@ theta_depr         (pr,br,cott,stime)                Value share of intermediate
 txfsefa            (se,fa,cott,stime)                Share of agents in factor income
 tsave              (cott,stime)                      Savings ratio
 * Investments
-exo_investments    (cott,stime)                      Exogenous Investments   
+investments    (cott,stime)                        Exogenous Investments   
 * Carbon Taxes
 txem               (br,cott,stime)                   Exogenous Carbon Tax - Firms
 txemh              (cott,stime)                      Exogenous Carbon Tax - Households
@@ -1776,7 +1776,7 @@ V_INV.L(se,cott,byear)   = tcinv(se,cott,byear) * sum(br, CAL_inv_v(br,cott));
 V_SURPL.L(se,cott,byear) = V_SAVE.L(se,cott,byear)- V_INV.L(se,cott,byear);
 
 
-exo_investments(cott,byear)   = sum(br, CAL_inv_v(br,cott));
+investments(cott,byear)   = sum(br, CAL_inv_v(br,cott));
 
 * ----------------------------------------------------------------------------------------------------------------------
 *                                                     CO2 Energy Related Emissions
@@ -2212,7 +2212,7 @@ eiovtot(pr,br,er,an)..
 * Investment Demand by commodity
 einvpv(pr,er,an)$(tinvpv(pr,er,an))..
 *   A_INVP(pr,er,an) =E= tinvpv(pr,er,an) * sum(se, V_INV(se,er,an))/P_INVP(pr,er,an);
-   A_INVP(pr,er,an) =E= tinvpv(pr,er,an) * exo_investments(er,an)/P_INVP(pr,er,an);
+   A_INVP(pr,er,an) =E= tinvpv(pr,er,an) * investments(er,an)/P_INVP(pr,er,an);
 
 
 * Investment by institutional sector
@@ -2478,7 +2478,7 @@ A_KAV.fx(pr,cott,rtime)  $(a_kav0(pr,cott,rtime)= 0) = 0;
 A_KAVC.fx(pr,cott,rtime) $(rtime.val = 2016)         = A_KAVC.l(pr,cott,rtime);
 
 RLTLR.fx(cott,rtime) = RLTLR.l(cott,byear);
-P_WPI.fx(rtime)      = 1;
+P_WPI.fx(byear)      = 1;
 
 
 V_FSEFA.fx(se,fa,cott,rtime)$(txfsefa(se,fa,cott,rtime) = 0) = 0;
@@ -2486,7 +2486,7 @@ V_VA.fx("LAB",br,cott,rtime)$(a_lav0(br,cott,rtime)= 0) = 0;
 V_VA.fx("CAP",br,cott,rtime)$(a_kav0(br,cott,rtime)= 0) = 0;
 
 * Numeraire
-P_WPI.fx(rtime)             $(rtime.val ge byear.val)
+P_WPI.fx(rtime)             $(rtime.val gt byear.val)
                             = 1.0 ;
 P_IO.fx("SRV01","ROW",rtime)$(rtime.val ge byear.val)
                             = P_WPI.l(rtime) * P_IO.l("SRV01","ROW",byear);
@@ -2494,26 +2494,70 @@ P_IO.fx("SRV01","ROW",rtime)$(rtime.val ge byear.val)
 *######################################################################################################################*
 *                                           SCENARIO ASSUMPTIONS                                                       *
 *######################################################################################################################*
-* Technical progress
-tgk(pr,er,an)                    = 0;
-tgl(pr,er,an)                    = 0;
-tge(prfuel,pr,er,an)             = 0;
-tgm(pr,br,er,an)                 = 0;
-tfp(pr,er,an)                    = 1;
-tfpexo(pr,er,an)                 = 1;
+*  Load Exogenous Assumptions
+Parameters
+exo_tgk(pr,cott,stime)               Technical progress - Capital
+exo_tgl(pr,cott,stime)                Technical progress - Labour
+exo_tge(pr,br,cott,stime)            Technical progress - Energy
+exo_tgm(pr,br,cott,stime)           Technical progress - Material
+exo_tfp(pr,cott,stime)                Total factor productivity
+exo_stp(cott,stime)                   Social Time Preference
+exo_TotPopulation(cott,stime)    Total Population
+exo_investments(cott,stime)      Exogenous Investment 
+exo_gctv(cott,stime)                 Governement Expenditures
+exo_txem(br,cott,stime)             Exogenous Carbon Tax on Firms  
+exo_txemh(cott,stime)               Exogenous Carbon Tax on Households
+;
+
+EXECUTE  "GDXXRW I=%path%\Exogenous_Assumptions.xlsx  O=%path%\Exogenous_Assumptions.gdx    index=INDEX!a1:f100  rwait = 1000";
+execute_load             '%path%\Exogenous_Assumptions.gdx',
+* Technical progress - Capital
+exo_tgk
+* Technical progress - Labour
+exo_tgl
+* Technical progress - Energy
+exo_tge
+* Technical progress - Material
+exo_tgm
+* Total factor productivity
+exo_tfp
+* Social Time Preference
+exo_stp
+* Population
+exo_TotPopulation
+* Exogenous investments
+exo_investments
+* Governement Expenditures
+exo_gctv
+* Environmental Taxes
+exo_txem
+exo_txemh
+;
+
+
+tgk(pr,cott,an)                   = exo_tgk(pr,cott,an) ;
+tgl(pr,cott,an)                    = exo_tgl(pr,cott,an) ;
+tge(prfuel,pr,cott,an)          = exo_tge(prfuel,pr,cott,an) ;
+tgm(pr,br,cott,an)               = exo_tgm(pr,br,cott,an);
+tfp(pr,cott,an)                    = exo_tfp(pr,cott,an)   ;
+tfpexo(pr,cott,an)               = 1;
+
+* Social Time Preference
+stp(cott,an)                        = exo_stp(cott,an);
 
 * Population
-TotPopulation(cott,an)           = TotPopulation(cott,byear);
+TotPopulation(cott,an)         = exo_TotPopulation(cott,an)   ;
 
 * Investments
-exo_investments(cott,an)         = exo_investments(cott,byear);
+investments(cott,an)           = exo_investments(cott,an)*
+                                                   P_WPI.l(an)/p_wpi0(an);
 
 * Governement Expenditures
-gctv(cott,an)                    = gctv(cott,byear);
+gctv(cott,an)                      = exo_gctv(cott,an);
 
 * Environmental Taxes
-txem(br,cott,an)                 = 0;
-txemh(cott,an)                   = 0;
+txem(br,cott,an)                 = exo_txem(br,cott,an);
+txemh(cott,an)                   = exo_txemh(cott,an) ;
 
 *###############################################################################
 *                                 SIMULATION
@@ -2620,27 +2664,43 @@ an(rtime)$(ord(rtime)     ge 2
 *###############################################################################
 *                                 REPORT
 *###############################################################################
+$setglobal sw_report    "0"
+
 Parameters
 REPORT_GDPV(cott,stime)           GDP at market prices   - b$ 2017
 REPORT_GCVTOT(cott,stime)         Government Consumption - b$ 2017
 REPORT_INVVCO(cott,stime)         Investment             - b$ 2017
 REPORT_RHCDTOTV(cott,stime)       Household Consumption  - b$ 2017
+REPORT_POP(cott,stime)            Population -  in million of persons
 REPORT_PRODUCTION(pr,cott,stime)  Sectoral Production    - b$ 2017
 ;
 
+*Macroeconomic Aggregates
 REPORT_GDPV(cott,an) = sum(br, P_HC.L(br,cott,byear) * A_HC.l(br,cott,an)
                              + P_GC.l(br,cott,byear) * A_GC.L(br,cott,an)
                              + P_INVP.l(br,cott,byear)*A_INVP.L(br,cott,an)
                              + P_PWE.L(br,cott,byear)*A_YVTWR.L(br,cott,an)
                              + P_PWE.l(br,cott,byear)*SUM(cutt, A_EXPO.l(br,cott,cutt,an)))
-                     - sum((br,cutt), (P_PWE.l(br,cutt,an)+cif_vtwr(br,cott,cutt,an)*P_TR.L(byear))
-                                      *A_IMPO.L(br,cott,cutt,an));
+                              - sum((br,cutt), (P_PWE.l(br,cutt,byear)+cif_vtwr(br,cott,cutt,an)*P_TR.L(byear))
+                                                                                *A_IMPO.L(br,cott,cutt,an));
 
-REPORT_GCVTOT(cott,an)   = sum(br, P_GC.L(br,cott,byear)*A_GC.L(br,cott,an));
-REPORT_INVVCO(cott,an)   = sum(br, P_INVP.L(br,cott,byear)*A_INVP.L(br,cott,an));
+REPORT_GCVTOT(cott,an)     = sum(br, P_GC.L(br,cott,byear)*A_GC.L(br,cott,an));
+REPORT_INVVCO(cott,an)      = sum(br, P_INVP.L(br,cott,byear)*A_INVP.L(br,cott,an));
 REPORT_RHCDTOTV(cott,an) = sum(br, P_HC.L(br,cott,byear)*A_HC.l(br,cott,an));
 
+*Population
+REPORT_POP(cott,an)         = TotPopulation (cott,an);
+
+*Sectoral Production
 REPORT_PRODUCTION(pr,cott,an) = P_PD.l(pr,cott,byear) * A_XD.l(pr,cott,an);
 
+
+$if %sw_report% == "1"  execute_unload        '%path%\OPEN_GEM_REPORT.gdx',    REPORT_GDPV, REPORT_GCVTOT, REPORT_INVVCO, REPORT_RHCDTOTV, REPORT_PRODUCTION, REPORT_POP;
+$if %sw_report% == "1"  execute "GDXXRW  i=%path%\OPEN_GEM_REPORT.gdx     o=%path%\OPEN_GEM_REPORT.xlsx    par=REPORT_GDPV               Rng=MACRO!b2      RDIM=1  CDIM=1 DIM=2";
+$if %sw_report% == "1"  execute "GDXXRW  i=%path%\OPEN_GEM_REPORT.gdx     o=%path%\OPEN_GEM_REPORT.xlsx    par=REPORT_GCVTOT           Rng=MACRO!b32    RDIM=1  CDIM=1  DIM=2";
+$if %sw_report% == "1"  execute "GDXXRW  i=%path%\OPEN_GEM_REPORT.gdx     o=%path%\OPEN_GEM_REPORT.xlsx    par=REPORT_INVVCO           Rng=MACRO!b62    RDIM=1  CDIM=1  DIM=2";
+$if %sw_report% == "1"  execute "GDXXRW  i=%path%\OPEN_GEM_REPORT.gdx     o=%path%\OPEN_GEM_REPORT.xlsx    par=REPORT_RHCDTOTV      Rng=MACRO!b92    RDIM=1  CDIM=1  DIM=2";
+$if %sw_report% == "1"  execute "GDXXRW  i=%path%\OPEN_GEM_REPORT.gdx     o=%path%\OPEN_GEM_REPORT.xlsx    par=REPORT_POP                Rng=MACRO!b122  RDIM=1  CDIM=1  DIM=2";
+$if %sw_report% == "1"  execute "GDXXRW  i=%path%\OPEN_GEM_REPORT.gdx     o=%path%\OPEN_GEM_REPORT.xlsx    par=REPORT_PRODUCTION  Rng=SECTORS!b2   RDIM=2  CDIM=1  DIM=3";
 
 
