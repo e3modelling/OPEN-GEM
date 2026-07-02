@@ -3,3 +3,8 @@
 *.lst
 *.lxi
 *.gdx
+
+
+*225*
+GTAP_Database/
+OPEN_GEM_REPORT.xlsx

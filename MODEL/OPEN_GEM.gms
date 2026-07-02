@@ -7,7 +7,7 @@ $setglobal path  ".\";
 
 * ------------- Switch for activating - Model Developments ------------*
 * Switch for adding the chemical recycling sector
-$setglobal sw_CHM_REC "1";
+$setglobal sw_CHM_REC "0";
 
 * ---------------------------------------------------------------------*
 * Raw Data
