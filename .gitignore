@@ -1,5 +1,6 @@
 *.gsp
 *.log
+*.log~*
 *.lst
 *.lxi
 *.gdx
