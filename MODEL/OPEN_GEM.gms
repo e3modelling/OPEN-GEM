@@ -7,7 +7,7 @@ $setglobal path  ".\";
 
 * ------------- Switch for activating - Model Developments ------------*
 * Switch for adding the chemical recycling sector
-$setglobal sw_CHM_REC "0";
+$setglobal sw_CHM_REC "1";
 
 * ---------------------------------------------------------------------*
 * Raw Data
@@ -52,10 +52,14 @@ $include '%path%05_Model_Equations.gms';
 *######################################################################################################################*
 * Select the type of the scenario
 * 0: BASELINE, 1: SCENARIO
-$setglobal scen_type "0"; 
+$setglobal scen_type "1"; 
 * Give the name of the scenario (valid if scen_type = 1)
 $if %scen_type% == "0"  $setglobal scen_name "BASE";
-$if %scen_type% == "1"  $setglobal scen_name "CHM_REC";
+*$if %scen_type% == "1"  $setglobal scen_name "BASE_OIL";
+*$if %scen_type% == "1"  $setglobal scen_name "CHM_REC";
+*$if %scen_type% == "1"  $setglobal scen_name "CHM_REC_OIL";
+*$if %scen_type% == "1"  $setglobal scen_name "CHM_REC_INV";
+$if %scen_type% == "1"  $setglobal scen_name "CHM_REC_INV_OIL";
 
 * Load the Baseline Assumptions
 $include '%path%\06_Baseline_Assumptions.gms';
