@@ -200,7 +200,6 @@ eiovtot(pr,br,er,an)..
 *#######################################################################################################################
 * Investment Demand by commodity
 einvpv(pr,er,an)$(tinvpv(pr,er,an))..
-*   A_INVP(pr,er,an) =E= tinvpv(pr,er,an) * sum(se, V_INV(se,er,an))/P_INVP(pr,er,an);
    A_INVP(pr,er,an) =E= tinvpv(pr,er,an) * investments(er,an)/P_INVP(pr,er,an);
 
 

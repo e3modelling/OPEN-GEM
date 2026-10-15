@@ -31,8 +31,21 @@ REPORT_SECTOR("EXPORTS",pr,cott,an)    = P_PWE.l(pr,cott,byear)*SUM(cutt, A_EXPO
 *Sectoral Results - Imports - b$ 2017 (incl. transport margins and duties)
 REPORT_SECTOR("IMPORTS",pr,cott,an)    = sum(cutt, (P_PWE.l(pr,cutt,byear)+cif_vtwr(pr,cott,cutt,an)*P_TR.L(byear))
                                                                           *A_IMPO.L(pr,cott,cutt,an));
+
+*Sectoral Results - Exports - b$ current prices
+REPORT_SECTOR("EXPORTS_V",pr,cott,an)    = P_PWE.l(pr,cott,an)*SUM(cutt, A_EXPO.l(pr,cott,cutt,an));
+*Sectoral Results - Imports - b$ current prices (incl. transport margins and duties)
+REPORT_SECTOR("IMPORTS_V",pr,cott,an)    = sum(cutt, (P_PWE.l(pr,cutt,an)+cif_vtwr(pr,cott,cutt,an)*P_TR.L(an))
+                                                                          *A_IMPO.L(pr,cott,cutt,an));
+
 *Sectoral Results - Demand  - b$ 2017
-REPORT_SECTOR("DEMAND",pr,cott,an)     = P_Y.l(pr,cott,an)*A_Y.l(pr,cott,an);
+REPORT_SECTOR("DEMAND",pr,cott,an)     = P_Y.l(pr,cott,byear)*A_Y.l(pr,cott,an);
+*Sectoral Results - Household Consumption  - b$ 2017
+REPORT_SECTOR("RHCDTOTV",pr,cott,an)   = P_HC.L(pr,cott,byear)*A_HC.l(pr,cott,an);
+*Sectoral Results - Government Consumption - b$ 2017
+REPORT_SECTOR("GCVTOT",pr,cott,an)     = P_GC.L(pr,cott,byear)*A_GC.L(pr,cott,an);
+*Sectoral Results - Investment             - b$ 2017
+REPORT_SECTOR("INVVCO",pr,cott,an)     = P_INVP.L(pr,cott,byear)*A_INVP.L(pr,cott,an);
 
 * Uploading main reporting parameters
 execute_unload    '%path%\OPEN_GEM_REPORT.gdx', REPORT_MACRO, REPORT_SECTOR;

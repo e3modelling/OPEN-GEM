@@ -54,7 +54,7 @@ $include '%path%05_Model_Equations.gms';
 * 0: BASELINE, 1: SCENARIO
 $setglobal scen_type "1"; 
 * Give the name of the scenario (valid if scen_type = 1)
-$if %scen_type% == "0"  $setglobal scen_name "BASE";
+*$if %scen_type% == "0"  $setglobal scen_name "BASE";
 *$if %scen_type% == "1"  $setglobal scen_name "BASE_OIL";
 *$if %scen_type% == "1"  $setglobal scen_name "CHM_REC";
 *$if %scen_type% == "1"  $setglobal scen_name "CHM_REC_OIL";
